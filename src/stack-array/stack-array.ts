@@ -1,9 +1,7 @@
-export class Stack<T> {
+export class StackArray<T> {
   private items: T[] = [];
 
-  constructor() {
-    this.items = [];
-  }
+  constructor() {}
 
   push(...items: T[]) {
     this.items.push(...items);

@@ -1,16 +1,16 @@
-import { StackArray } from './stack-array';
+import { StackObject } from './stack-object';
 
-describe('testing the StackArray structure', () => {
-  test('create the StackArray structure', () => {
-    const stack = new StackArray<any>();
+describe('testing the StackObject structure', () => {
+  test('create the StackObject structure', () => {
+    const stack = new StackObject<any>();
     const emptyArray = [];
 
     expect(stack.size()).toBe(0);
     expect(stack.toString()).toBe(emptyArray.toString());
   });
 
-  test('add items in the StackArray structure', () => {
-    const stack = new StackArray<number>();
+  test('add items in the StackObject structure', () => {
+    const stack = new StackObject<number>();
 
     stack.push(2);
     expect(stack.size()).toBe(1);
@@ -22,8 +22,8 @@ describe('testing the StackArray structure', () => {
   });
   
 
-  test('remove items in the StackArray structure', () => {
-    const stack = new StackArray<number>();
+  test('remove items in the StackObject structure', () => {
+    const stack = new StackObject<number>();
     stack.push(2, 3, 5);
     expect(stack.size()).toBe(3);
 
@@ -44,8 +44,8 @@ describe('testing the StackArray structure', () => {
     expect(notNumber).toBe(undefined);
   });
 
-  test('peek first item in the StackArray structure', () => {
-    const stack = new StackArray<number>();
+  test('peek first item in the StackObject structure', () => {
+    const stack = new StackObject<number>();
 
     stack.push(2, 3, 5);
     const number5 = stack.peek();
@@ -66,8 +66,8 @@ describe('testing the StackArray structure', () => {
   });
 
 
-  test('the StackArray structure is empty', () => {
-    const stack = new StackArray<number>();
+  test('the StackObject structure is empty', () => {
+    const stack = new StackObject<number>();
     expect(stack.isEmpty()).toBe(true);
 
     stack.push(1, 2, 5, 9);
@@ -83,8 +83,8 @@ describe('testing the StackArray structure', () => {
     expect(stack.isEmpty()).toBe(true);
   });
 
-  test('method clear in the StackArray structure', () => {
-    const stack = new StackArray<number>();
+  test('method clear in the StackObject structure', () => {
+    const stack = new StackObject<number>();
     expect(stack.size()).toBe(0);
 
     stack.push(1, 2, 5, 9);
@@ -100,8 +100,8 @@ describe('testing the StackArray structure', () => {
     expect(stack.size()).toBe(0);
   });
 
-  test('method size in the StackArray structure', () => {
-    const stack = new StackArray<number>();
+  test('method size in the StackObject structure', () => {
+    const stack = new StackObject<number>();
     expect(stack.size()).toBe(0);
 
     stack.push(1, 2, 5, 9);
