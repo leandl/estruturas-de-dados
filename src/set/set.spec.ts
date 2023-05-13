@@ -3,10 +3,9 @@ import { Set } from "./set";
 describe('testing the Set structure', () => {
   test('create the Set structure', () => {
     const set = new Set<any>();
-    const emptyArray = [];
 
     expect(set.size()).toBe(0);
-    expect(set.values().toString()).toBe(emptyArray.toString());
+    expect(set.values().toString()).toBe([].toString());
   });
 
   test('add items in the Set structure', () => {

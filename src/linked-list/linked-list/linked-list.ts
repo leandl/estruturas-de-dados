@@ -3,7 +3,7 @@ import { Node } from "./node";
 
 type EqualsFun<T> = (a: T, b: T) => boolean;
 
-export class LinkedList<T> {
+export class LinkedList<T> implements Iterable<T> {
   private count: number = 0;
   private head?: Node<T>;
 
@@ -129,5 +129,13 @@ export class LinkedList<T> {
     }
 
     return objString;
+  }
+
+  *[Symbol.iterator]() {
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode.element;
+      currentNode = currentNode.next;
+    }
   }
 }
