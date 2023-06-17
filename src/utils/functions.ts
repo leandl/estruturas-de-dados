@@ -13,3 +13,28 @@ export function defaultToString(item: any): string {
 
   return item.toString() as string;
 }
+
+export enum Compare {
+  LESS_THAN = -1,
+  BIGGER_THAN = 1,
+  EQUALS = 0
+}
+
+export type CompareFunction<T> = (a: T, b: T) => Compare;
+
+export function lesserEquals<T>(a: T, b: T, compareFn: CompareFunction<T>) {
+  const comp = compareFn(a, b);
+  return comp === Compare.LESS_THAN || comp === Compare.EQUALS;
+}
+
+export function biggerEquals<T>(a: T, b: T, compareFn: CompareFunction<T>) {
+  const comp = compareFn(a, b);
+  return comp === Compare.BIGGER_THAN || comp === Compare.EQUALS;
+}
+
+export function defaultCompare<T>(a: T, b: T): number {
+  if (a === b) {
+    return Compare.EQUALS;
+  }
+  return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
+}
