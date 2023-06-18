@@ -1,6 +1,6 @@
 export class Node<T> {
-  private left: Node<T> | null = null;
-  private right: Node<T> | null = null;
+  protected left: Node<T> | null = null;
+  protected right: Node<T> | null = null;
 
   constructor(private key: T) {}
 

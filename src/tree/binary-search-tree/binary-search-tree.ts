@@ -1,13 +1,13 @@
 import { Compare, CompareFunction, defaultCompare } from "../../utils/functions";
-import { Node } from "./node";
+import { Node } from "../node";
 
 
 type VisitCallback<T> = (key: T) => void;
 
 export class BinarySearchTree<T> {
-  private root: Node<T> | null = null;
+  protected root: Node<T> | null = null;
 
-  constructor(private compareFuntion: CompareFunction<T> = defaultCompare) {}
+  constructor(protected compareFuntion: CompareFunction<T> = defaultCompare) {}
 
   insert(key: T): void {
     if (this.root === null) {
@@ -18,7 +18,7 @@ export class BinarySearchTree<T> {
     return this.insertNode(this.root, key);
   }
 
-  private insertNode(node: Node<T>, key: T): void {
+  protected insertNode(node: Node<T>, key: T): void {
     if (this.compareFuntion(key, node.getKey()) === Compare.LESS_THAN) {
       const nodeLeft = node.getLeft();
       if (nodeLeft === null) {
@@ -143,7 +143,7 @@ export class BinarySearchTree<T> {
     this.root = this.removeNode(this.root, key);
   }
 
-  private removeNode(node: Node<T> | null, key: T): Node<T> | null {
+  protected removeNode(node: Node<T> | null, key: T): Node<T> | null {
     if (node === null) {
       return null;
     }
