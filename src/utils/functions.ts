@@ -38,3 +38,12 @@ export function defaultCompare<T>(a: T, b: T): number {
   }
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN;
 }
+
+
+export function reverseCompare<T>(compareFunction: CompareFunction<T>): CompareFunction<T> {
+  return (a: T, b: T) => compareFunction(b, a);
+}
+
+export function swap<T>(array: T[], a: number, b: number) {
+  [array[b], array[a]] = [array[a], array[b]];
+}
