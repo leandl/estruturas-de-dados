@@ -6,7 +6,7 @@ export enum GraphType {
   UNDIRECTED = "UNDIRECTED",
 }
 
-export class Graph<T extends IToString = any> {
+export class Graph<T extends IToString = IToString> {
   private vertices: T[] = [];
   private adjList = new Dictionary<string, T[]>();
 

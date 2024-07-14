@@ -2,7 +2,7 @@ import { Graph, GraphType } from "./graph";
 
 export enum Color {
   WHITE = 0,
-  GERY = 1,
+  GREY = 1,
   BLACK = 2,
 }
 
@@ -15,10 +15,8 @@ export function initializeColors<T extends IToString>(
 ): Record<string, Color> {
   return graph.getVertices().reduce((colors, vertex) => {
     const keyV = vertex.toString();
-    return {
-      [keyV]: Color.WHITE,
-      ...colors,
-    };
+    colors[keyV] = Color.WHITE;
+    return colors;
   }, {} as Record<string, Color>);
 }
 

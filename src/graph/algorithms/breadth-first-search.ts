@@ -15,13 +15,13 @@ export function breadthFirstSearchVisit<T extends IToString>(
   while (!queue.isEmpty()) {
     const vertex = queue.dequeue()!;
     const vertexString = vertex.toString();
-    colors[vertexString] = Color.GERY;
+    colors[vertexString] = Color.GREY;
 
     const neighbors = graph.get(vertex) || [];
     neighbors?.forEach((neighbor) => {
       const neighborString = neighbor.toString();
       if (colors[neighborString] === Color.WHITE) {
-        colors[neighborString] = Color.GERY;
+        colors[neighborString] = Color.GREY;
         queue.enqueue(neighbor);
       }
     });
@@ -54,13 +54,13 @@ export function breadthFirstSearch<T extends IToString>(
   while (!queue.isEmpty()) {
     const vertex = queue.dequeue()!;
     const vertexString = vertex.toString();
-    colors[vertexString] = Color.GERY;
+    colors[vertexString] = Color.GREY;
 
     const neighbors = graph.get(vertex) || [];
     neighbors?.forEach((neighbor) => {
       const neighborString = neighbor.toString();
       if (colors[neighborString] === Color.WHITE) {
-        colors[neighborString] = Color.GERY;
+        colors[neighborString] = Color.GREY;
         distances[neighborString] = distances[vertexString] + 1;
         predecessors[neighborString] = vertex;
         queue.enqueue(neighbor);
